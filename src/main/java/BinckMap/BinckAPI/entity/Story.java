@@ -1,9 +1,11 @@
 package BinckMap.BinckAPI.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Table(name = "story")
 
 public class Story {
 
@@ -16,6 +18,18 @@ public class Story {
 
     @Column
     private String story;
+
+    @Column
+    private UUID userId;
+
+    @Column
+    private Date publicationDate;
+
+    @Column
+    private Date creationDate;
+
+    @Column
+    private boolean published;
 
     public Story(UUID id, String subject, String story) {
         this.id = id;
@@ -47,5 +61,37 @@ public class Story {
 
     public void setStory(String story) {
         this.story = story;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 }
