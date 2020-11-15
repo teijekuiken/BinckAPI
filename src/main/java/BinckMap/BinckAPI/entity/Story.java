@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Story {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator="UUID")
     private UUID id;
 
     @Column
@@ -19,8 +19,8 @@ public class Story {
     @Column
     private String story;
 
-    @Column
-    private UUID userId;
+    @ManyToOne
+    private User user;
 
     @Column
     private Date publicationDate;
@@ -31,10 +31,13 @@ public class Story {
     @Column
     private boolean published;
 
-    public Story(UUID id, String subject, String story) {
+    public Story(UUID id, String subject, String story, User user, Date publicationdate, Date creationDAte) {
         this.id = id;
         this.subject = subject;
         this.story = story;
+        this.user = user;
+        this.publicationDate = publicationdate;
+        this.creationDate = creationDAte;
     }
 
     public Story(){}
@@ -63,14 +66,6 @@ public class Story {
         this.story = story;
     }
 
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
-    }
-
     public Date getPublicationDate() {
         return publicationDate;
     }
@@ -93,5 +88,13 @@ public class Story {
 
     public void setPublished(boolean published) {
         this.published = published;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

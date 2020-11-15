@@ -2,6 +2,7 @@ package BinckMap.BinckAPI.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -9,8 +10,8 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID userId;
+    @GeneratedValue(generator="UUID")
+    private UUID Id;
 
     @Column
     private String firstName;
@@ -24,12 +25,17 @@ public class User {
     @Column
     private String email;
 
-    public UUID getUserId() {
-        return userId;
+    @OneToMany(mappedBy = "user")
+    private List<Story> stories;
+
+    public User(){}
+
+    public UUID getId() {
+        return Id;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setId(UUID id) {
+        Id = id;
     }
 
     public String getFirstName() {
@@ -62,5 +68,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Story> getStories() {
+        return stories;
+    }
+
+    public void setStories(List<Story> stories) {
+        this.stories = stories;
     }
 }
