@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>succes</title>
+    <script src="https://kit.fontawesome.com/3c445f67f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div>
+    <form>
+        <fieldset>
+            <legend><i class="far fa-thumbs-up"></i> Gelukt!</legend>
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+
+        </fieldset>
+        <fieldset>
+            <a th:href="@{/logout}">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

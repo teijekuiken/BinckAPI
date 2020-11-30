@@ -1,6 +1,5 @@
 package BinckMap.BinckAPI.controller;
 
-import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
 import BinckMap.BinckAPI.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
