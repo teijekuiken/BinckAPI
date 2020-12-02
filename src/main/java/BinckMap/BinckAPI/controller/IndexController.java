@@ -23,4 +23,9 @@ public class IndexController {
         return "logout";
     }
 
+    @GetMapping("/userinput")
+    public String userinput(HttpServletRequest request){
+        return "userinput";
+    }
+
 }
