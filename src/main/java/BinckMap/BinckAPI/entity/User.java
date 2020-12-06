@@ -22,8 +22,10 @@ public class User {
     @Column
     private Date creationDate;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String email;
+
+    private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Story> stories;
@@ -76,5 +78,13 @@ public class User {
 
     public void setStories(List<Story> stories) {
         this.stories = stories;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
