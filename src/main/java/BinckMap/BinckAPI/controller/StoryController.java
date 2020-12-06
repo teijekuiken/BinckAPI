@@ -4,9 +4,7 @@ import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.services.StoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,6 +28,12 @@ public class StoryController {
         List<Story> stories = storyServices.getAllStories();
 
         return ResponseEntity.ok(stories);
+    }
+
+    @PostMapping("/story")
+    public ResponseEntity<Story> addStory(@RequestBody Story story){
+        storyServices.setStory(story);
+        return ResponseEntity.ok(story);
     }
 
 }

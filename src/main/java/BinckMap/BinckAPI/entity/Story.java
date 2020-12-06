@@ -1,5 +1,7 @@
 package BinckMap.BinckAPI.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -31,13 +33,15 @@ public class Story {
     @Column
     private boolean published;
 
-    public Story(UUID id, String subject, String story, User user, Date publicationdate, Date creationDAte) {
+    public Story(@JsonProperty("id") UUID id,
+                 @JsonProperty("subject")String subject,
+                 @JsonProperty("story") String story) {
         this.id = id;
         this.subject = subject;
         this.story = story;
-        this.user = user;
-        this.publicationDate = publicationdate;
-        this.creationDate = creationDAte;
+//        this.user = user;
+//        this.publicationDate = publicationDate;
+//        this.creationDate = creationDate;
     }
 
     public Story(){}
