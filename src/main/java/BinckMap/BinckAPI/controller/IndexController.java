@@ -24,11 +24,6 @@ public class IndexController {
         return "homepage";
     }
 
-    @GetMapping("/userinput")
-    public String userinput(HttpServletRequest request){
-        return "userinput";
-    }
-
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
