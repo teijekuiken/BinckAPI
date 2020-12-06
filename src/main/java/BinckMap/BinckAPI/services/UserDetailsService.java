@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class UserService {
+public class UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -27,5 +27,8 @@ public class UserService {
     public List<User> getAllUsers(){
         List<User> users = userRepository.findAll();
         return users;
+    }
+
+    public void loadUserByUsername(String email){
     }
 }
