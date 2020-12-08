@@ -1,12 +1,13 @@
 package BinckMap.BinckAPI.controller;
 
+import BinckMap.BinckAPI.controller.model.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.services.StoryServices;
+import BinckMap.BinckAPI.services.model.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,9 +33,8 @@ public class StoryController {
     }
 
     @PostMapping("/story")
-    public void addStory(@RequestBody StoryRequestBody storyRequestBody)
-    {
-        storyServices.setStory(storyRequestBody);
+    public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody){
+        return storyServices.setStory(storyRequestBody);
     }
 
 }

@@ -1,11 +1,12 @@
-package BinckMap.BinckAPI.controller;
+package BinckMap.BinckAPI.controller.model;
 
+import BinckMap.BinckAPI.Interfaces.IStoryRequestBody;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class StoryRequestBody {
+public class StoryRequestBody implements IStoryRequestBody {
 
     private UUID id;
     private String subject;
