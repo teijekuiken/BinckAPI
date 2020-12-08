@@ -1,6 +1,7 @@
 package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.StoryRepository;
+import BinckMap.BinckAPI.controller.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class StoryServices {
     @Autowired
     private StoryRepository storyRepository;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     public Story getStoryById(UUID storyId){
         Optional<Story> story = storyRepository.findById(storyId);
         if(story.isEmpty()){
@@ -29,8 +33,12 @@ public class StoryServices {
         return stories;
     }
 
-    public Story setStory(Story story){
+    public Story setStory(StoryRequestBody storyRequestBody){
+        User user = userDetailsService.getUserById(storyRequestBody.getId());
+        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getPublicationdate(), storyRequestBody.getCreationDate());
+
         storyRepository.save(story);
+
         return story;
     }
 
