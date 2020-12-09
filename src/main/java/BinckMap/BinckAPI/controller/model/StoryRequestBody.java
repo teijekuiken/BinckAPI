@@ -11,18 +11,18 @@ public class StoryRequestBody implements IStoryRequestBody {
     private UUID id;
     private String subject;
     private String verhaal;
-    private Date publicationdate;
+    private Date publicationDate;
     private Date creationDate;
 
     public StoryRequestBody(@JsonProperty("userId")UUID id,
                             @JsonProperty("subject") String subject,
                             @JsonProperty("verhaal") String verhaal,
-                            @JsonProperty("publicationdate") Date publicationdate,
+                            @JsonProperty("publicationDate") Date publicationDate,
                             @JsonProperty("creationDate") Date creationDate) {
         this.id = id;
         this.subject = subject;
         this.verhaal = verhaal;
-        this.publicationdate = publicationdate;
+        this.publicationDate = publicationDate;
         this.creationDate = creationDate;
     }
 
@@ -50,12 +50,12 @@ public class StoryRequestBody implements IStoryRequestBody {
         this.verhaal = verhaal;
     }
 
-    public Date getPublicationdate() {
-        return publicationdate;
+    public Date getPublicationDate() {
+        return publicationDate;
     }
 
-    public void setPublicationdate(Date publicationdate) {
-        this.publicationdate = publicationdate;
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
     public Date getCreationDate() {

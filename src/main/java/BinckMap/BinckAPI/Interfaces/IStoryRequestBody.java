@@ -14,8 +14,8 @@ public interface IStoryRequestBody {
     String getVerhaal();
     void setVerhaal(String verhaal);
 
-    Date getPublicationdate();
-    void setPublicationdate(Date publicationdate);
+    Date getPublicationDate();
+    void setPublicationDate(Date publicationDate);
 
     Date getCreationDate();
     void setCreationDate(Date creationDate);

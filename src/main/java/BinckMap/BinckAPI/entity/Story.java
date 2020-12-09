@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Story {
 
     @Id
-    @GeneratedValue(generator="UUID")
+    @GeneratedValue(generator = "UUID")
     private UUID id;
 
     @Column
@@ -33,7 +33,7 @@ public class Story {
     @Column
     private boolean published;
 
-    public Story(String subject, String story, User user, Date publicationdate, Date creationDAte) {
+    public Story(String subject, String story, User user, Date publicationDate, Date creationDate) {
         this.subject = subject;
         this.story = story;
         this.user = user;
@@ -41,9 +41,8 @@ public class Story {
         this.creationDate = creationDate;
     }
 
-
-
-    public Story(){}
+    public Story() {
+    }
 
     public UUID getId() {
         return id;

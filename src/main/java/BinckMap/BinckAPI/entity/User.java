@@ -10,7 +10,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(generator="UUID")
+    @GeneratedValue(generator = "UUID")
     private UUID Id;
 
     @Column
@@ -30,7 +30,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Story> stories;
 
-    public User(){}
+    public User() {
+    }
 
     public UUID getId() {
         return Id;

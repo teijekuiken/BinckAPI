@@ -20,27 +20,26 @@ public class StoryServices {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    public Story getStoryById(UUID storyId){
+    public Story getStoryById(UUID storyId) {
         Optional<Story> story = storyRepository.findById(storyId);
-        if(story.isEmpty()){
+        if (story.isEmpty()) {
             return null;
         }
         return story.get();
     }
 
-    public List<Story> getAllStories(){
+    public List<Story> getAllStories() {
         List<Story> stories = storyRepository.findAll();
         return stories;
     }
 
-    public StoryResponseBody setStory(StoryRequestBody storyRequestBody){
+    public StoryResponseBody setStory(StoryRequestBody storyRequestBody) {
         User user = userDetailsService.getUserById(storyRequestBody.getId());
-        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getPublicationdate(), storyRequestBody.getCreationDate());
+        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getPublicationDate(), storyRequestBody.getCreationDate());
 
         storyRepository.save(story);
 
         StoryResponseBody storyResponseBody = new StoryResponseBody(user.getFirstName(), story.getSubject(), story.getStory());
-
 
         return storyResponseBody;
     }

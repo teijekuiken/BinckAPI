@@ -18,7 +18,7 @@ public class StoryController {
     private StoryServices storyServices;
 
     @GetMapping("/story/{storyId}")
-    public ResponseEntity<Story> getStory(@PathVariable UUID storyId){
+    public ResponseEntity<Story> getStory(@PathVariable UUID storyId) {
 
         Story story = storyServices.getStoryById(storyId);
 
@@ -26,14 +26,14 @@ public class StoryController {
     }
 
     @GetMapping("/story")
-    public ResponseEntity<List<Story>> getAllStories(){
+    public ResponseEntity<List<Story>> getAllStories() {
         List<Story> stories = storyServices.getAllStories();
 
         return ResponseEntity.ok(stories);
     }
 
     @PostMapping("/story")
-    public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody){
+    public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody) {
         return storyServices.setStory(storyRequestBody);
     }
 
