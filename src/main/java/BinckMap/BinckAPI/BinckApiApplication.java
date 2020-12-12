@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication
 public class BinckApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BinckApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BinckApiApplication.class, args);
+    }
 
 }

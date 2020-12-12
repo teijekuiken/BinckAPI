@@ -1,26 +1,121 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+
     <meta charset="UTF-8">
+
     <title>succes</title>
-    <script src="https://kit.fontawesome.com/3c445f67f3.js" crossorigin="anonymous"></script>
+
+    <style>
+
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #fff;
+
+            color: #fff;
+            font-family: Arial;
+            font-size: 12px;
+        }
+
+        .body{
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -40px;
+            bottom: -40px;
+            width: auto;
+            height: auto;
+            background-image: url(https://scontent-ams4-1.xx.fbcdn.net/v/t1.0-9/122430997_3408029089232131_4290063335340147281_o.jpg?_nc_cat=100&ccb=2&_nc_sid=730e14&_nc_ohc=dVmIyCIqapIAX_tPE3I&_nc_ht=scontent-ams4-1.xx&oh=3791c87723ef43a4499238c75af6726d&oe=5FFB0480);
+            background-size: cover;
+            -webkit-filter: blur(5px);
+            z-index: 0;
+        }
+
+        .grad{
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -40px;
+            bottom: -40px;
+            width: auto;
+            height: auto;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        /*todo Hier moet nu nog de juiste padding in worden gezet. fomulier staat te ver naar rechts.*/
+        .container{
+            position: absolute;
+            top: calc(50%);
+            left: calc(50%);
+            height: 150px;
+            width: 350px;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .header div{
+            float: left;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 35px;
+            font-weight: 200;
+        }
+
+        .header div span{
+            color: #5379fa !important;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+
 </head>
 <body>
-<div>
+
+<div class="body"></div>
+<div class="grad"></div>
+<div class="container">
     <form>
         <fieldset>
             <legend><i class="far fa-thumbs-up"></i> Gelukt!</legend>
-            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-
-
+            <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
+            <form>
+                <div class="form-group">
+                    <label for="sel1">Verhalen om goed te keuren:</label>
+                    <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                    <br>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-info" value="Submit Button">
+                </div>
+            </form>
         </fieldset>
+
         <fieldset>
-            <a th:href="@{/logout}">
+            <a href="#" th:href="@{/logout}">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
             </a>
         </fieldset>
     </form>
 </div>
+
+<script src="https://kit.fontawesome.com/3c445f67f3.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

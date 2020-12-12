@@ -1,47 +1,29 @@
-package BinckMap.BinckAPI.entity;
+package BinckMap.BinckAPI.controller.model;
 
+import BinckMap.BinckAPI.Interfaces.IStoryRequestBody;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
-@Entity
-@Table(name = "story")
+public class StoryRequestBody implements IStoryRequestBody {
 
-public class Story {
-
-    @Id
-    @GeneratedValue(generator = "UUID")
     private UUID id;
-
-    @Column
     private String subject;
-
-    @Column
-    private String story;
-
-    @ManyToOne
-    private User user;
-
-    @Column
+    private String verhaal;
     private Date publicationDate;
-
-    @Column
     private Date creationDate;
 
-    @Column
-    private boolean published;
-
-    public Story(String subject, String story, User user, Date publicationDate, Date creationDate) {
+    public StoryRequestBody(@JsonProperty("userId")UUID id,
+                            @JsonProperty("subject") String subject,
+                            @JsonProperty("verhaal") String verhaal,
+                            @JsonProperty("publicationDate") Date publicationDate,
+                            @JsonProperty("creationDate") Date creationDate) {
+        this.id = id;
         this.subject = subject;
-        this.story = story;
-        this.user = user;
+        this.verhaal = verhaal;
         this.publicationDate = publicationDate;
         this.creationDate = creationDate;
-    }
-
-    public Story() {
     }
 
     public UUID getId() {
@@ -60,12 +42,12 @@ public class Story {
         this.subject = subject;
     }
 
-    public String getStory() {
-        return story;
+    public String getVerhaal() {
+        return verhaal;
     }
 
-    public void setStory(String story) {
-        this.story = story;
+    public void setVerhaal(String verhaal) {
+        this.verhaal = verhaal;
     }
 
     public Date getPublicationDate() {
@@ -82,21 +64,5 @@ public class Story {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

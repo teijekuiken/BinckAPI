@@ -11,21 +11,24 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class UserService {
+public class UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public User getUserById(UUID userId){
+    public User getUserById(UUID userId) {
         Optional<User> user = userRepository.findById(userId);
-        if(user.isEmpty()){
+        if (user.isEmpty()) {
             return null;
         }
         return user.get();
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users;
+    }
+
+    public void loadUserByUsername(String email) {
     }
 }
