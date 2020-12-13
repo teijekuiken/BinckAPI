@@ -1,7 +1,5 @@
 package BinckMap.BinckAPI.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -23,6 +21,12 @@ public class Story {
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Area area;
+
+    @ManyToOne
+    private Building building;
 
     @Column
     private Date publicationDate;
@@ -98,5 +102,21 @@ public class Story {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 }

@@ -54,4 +54,13 @@ public class Building {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<Story> getStories() {
+        return stories;
+    }
+
+    public void setStories(List<Story> stories) {
+        this.stories = stories;
+    }
+
 }
