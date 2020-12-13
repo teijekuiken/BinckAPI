@@ -1,6 +1,6 @@
 package BinckMap.BinckAPI.DAO;
 
-import BinckMap.BinckAPI.entity.Story;
+import BinckMap.BinckAPI.Entity.Story;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

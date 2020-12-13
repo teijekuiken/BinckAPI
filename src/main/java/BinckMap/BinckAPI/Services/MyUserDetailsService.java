@@ -1,9 +1,9 @@
-package BinckMap.BinckAPI.services;
+package BinckMap.BinckAPI.Services;
 
 import BinckMap.BinckAPI.DAO.UserRepository;
 import BinckMap.BinckAPI.Security.MyUserPrincipal;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import BinckMap.BinckAPI.entity.User;
+import BinckMap.BinckAPI.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;

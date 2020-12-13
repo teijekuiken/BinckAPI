@@ -1,4 +1,4 @@
-package BinckMap.BinckAPI.entity;
+package BinckMap.BinckAPI.Entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,12 +25,20 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column
+    private String salt;
+
+    @Column
     private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Story> stories;
 
-    public User() {
+    public User(String firstname, String lastName, String email, String password) {
+        this.firstName = firstname;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
     public UUID getId() {
@@ -87,5 +95,13 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

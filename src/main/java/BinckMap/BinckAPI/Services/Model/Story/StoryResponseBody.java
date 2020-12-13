@@ -1,4 +1,4 @@
-package BinckMap.BinckAPI.services.model;
+package BinckMap.BinckAPI.Services.Model.Story;
 
 import BinckMap.BinckAPI.Interfaces.IStoryResponseBody;
 

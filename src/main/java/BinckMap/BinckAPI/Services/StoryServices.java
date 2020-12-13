@@ -1,10 +1,10 @@
-package BinckMap.BinckAPI.services;
+package BinckMap.BinckAPI.Services;
 
 import BinckMap.BinckAPI.DAO.StoryRepository;
-import BinckMap.BinckAPI.controller.model.StoryRequestBody;
-import BinckMap.BinckAPI.entity.Story;
-import BinckMap.BinckAPI.entity.User;
-import BinckMap.BinckAPI.services.model.StoryResponseBody;
+import BinckMap.BinckAPI.Controller.model.Story.StoryRequestBody;
+import BinckMap.BinckAPI.Entity.Story;
+import BinckMap.BinckAPI.Entity.User;
+import BinckMap.BinckAPI.Services.Model.Story.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

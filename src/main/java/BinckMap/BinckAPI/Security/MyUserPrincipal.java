@@ -1,6 +1,6 @@
 package BinckMap.BinckAPI.Security;
 
-import BinckMap.BinckAPI.entity.User;
+import BinckMap.BinckAPI.Entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

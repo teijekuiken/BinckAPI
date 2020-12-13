@@ -1,9 +1,9 @@
-package BinckMap.BinckAPI.controller;
+package BinckMap.BinckAPI.Controller;
 
-import BinckMap.BinckAPI.controller.model.StoryRequestBody;
-import BinckMap.BinckAPI.entity.Story;
-import BinckMap.BinckAPI.services.StoryServices;
-import BinckMap.BinckAPI.services.model.StoryResponseBody;
+import BinckMap.BinckAPI.Controller.model.Story.StoryRequestBody;
+import BinckMap.BinckAPI.Entity.Story;
+import BinckMap.BinckAPI.Services.StoryServices;
+import BinckMap.BinckAPI.Services.Model.Story.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

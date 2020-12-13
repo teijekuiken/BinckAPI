@@ -1,4 +1,4 @@
-package BinckMap.BinckAPI.controller.model;
+package BinckMap.BinckAPI.Controller.model.Story;
 
 import BinckMap.BinckAPI.Interfaces.IStoryRequestBody;
 import com.fasterxml.jackson.annotation.JsonProperty;
