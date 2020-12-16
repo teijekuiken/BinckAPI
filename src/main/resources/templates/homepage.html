@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Binck verhalen</title>
 
+<!--    <link rel="stylesheet" href="../static/css/style.css">-->
     <style>
-
-
         body{
             margin: 0;
             padding: 0;
@@ -26,7 +26,7 @@
             bottom: -40px;
             width: auto;
             height: auto;
-            background-image: url(https://scontent-ams4-1.xx.fbcdn.net/v/t1.0-9/122430997_3408029089232131_4290063335340147281_o.jpg?_nc_cat=100&ccb=2&_nc_sid=730e14&_nc_ohc=dVmIyCIqapIAX_tPE3I&_nc_ht=scontent-ams4-1.xx&oh=3791c87723ef43a4499238c75af6726d&oe=5FFB0480);
+            background-image: url("https://imbinck.nl/wp-content/uploads/23509_fullimage_luchtfoto_binkchorst_richting_binnenstad.jpg");
             background-size: cover;
             -webkit-filter: blur(5px);
             z-index: 0;
@@ -45,34 +45,14 @@
             opacity: 0.7;
         }
 
-        /*todo Hier moet nu nog de juiste padding in worden gezet. fomulier staat te ver naar rechts.*/
         .container{
-            position: absolute;
-            top: calc(50%);
-            left: calc(50%);
-            height: 150px;
-            width: 350px;
+            position: relative;
             padding: 10px;
             z-index: 2;
         }
+        </style>
 
-        .header div{
-            float: left;
-            color: #fff;
-            font-family: 'Exo', sans-serif;
-            font-size: 35px;
-            font-weight: 200;
-        }
-
-        .header div span{
-            color: #5379fa !important;
-        }
-    </style>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-
 
 </head>
 <body>
@@ -82,7 +62,7 @@
 <div class="container">
     <form>
         <fieldset>
-            <legend><i class="far fa-thumbs-up"></i> Gelukt!</legend>
+            <legend ><i class="far fa-thumbs-up"></i> Gelukt!</legend>
             <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
             <form>
                 <div class="form-group">
