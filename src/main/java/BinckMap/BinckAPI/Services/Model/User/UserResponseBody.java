@@ -7,11 +7,9 @@ public class UserResponseBody implements IUserResponseBody {
     private String name;
     private String surname;
     private String email;
+    private String token;
 
-    public UserResponseBody(String name, String surname, String email) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
+    public UserResponseBody() {
     }
 
     public String getName() {
@@ -36,5 +34,13 @@ public class UserResponseBody implements IUserResponseBody {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

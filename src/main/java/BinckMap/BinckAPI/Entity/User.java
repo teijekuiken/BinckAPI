@@ -1,9 +1,9 @@
 package BinckMap.BinckAPI.Entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -22,11 +22,9 @@ public class User {
     @Column
     private Date creationDate;
 
-    @Column(nullable = false, unique = true)
+    @NotNull
+    @Column(unique = true)
     private String email;
-
-    @Column
-    private String salt;
 
     @Column
     private String password;
@@ -34,12 +32,18 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Story> stories;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Authorities> authorities = new HashSet<>();
+
+
     public User(String firstname, String lastName, String email, String password) {
         this.firstName = firstname;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
+
+    public User(){}
 
     public UUID getId() {
         return Id;
@@ -97,11 +101,11 @@ public class User {
         return password;
     }
 
-    public String getSalt() {
-        return salt;
+    public Set<Authorities> getAuthorities() {
+        return authorities;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setAuthorities(Set<Authorities> authorities) {
+        this.authorities = authorities;
     }
 }
