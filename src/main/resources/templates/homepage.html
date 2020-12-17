@@ -62,16 +62,18 @@
 <div class="container">
     <form>
         <fieldset>
-            <legend ><i class="far fa-thumbs-up"></i> Gelukt!</legend>
+            <legend ><i class="far fa-thumbs-up"></i> Welkom!</legend>
             <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
-            <form>
-                <div class="form-group">
-                    <label for="sel1">Verhalen om goed te keuren:</label>
-                    <select class="form-control" id="sel1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+            <form th:action="@{/story}" method="post" >
+                <div >
+                    <label>Kies het gebied/gebouw voor het verhaal:</label>
+                    <select name="gebieden/gebouwen">
+                        <option th:each="area:${areas}"
+                                th:text="${area.name}"></option>
+                        <option th:each="building:${buildings}"
+                                th:text="${building.name}"></option>
+
+
                     </select>
                     <br>
                     <textarea class="form-control" rows="5" id="comment"></textarea>

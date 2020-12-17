@@ -6,6 +6,7 @@ import BinckMap.BinckAPI.services.AreaServices;
 import BinckMap.BinckAPI.services.model.AreaResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,9 +28,9 @@ public class AreaController {
 
     @GetMapping("/area")
     public ResponseEntity<List<Area>> getAllAreas() {
-        List<Area> stories = areaServices.getAllAreas();
+        List<Area> areas = areaServices.getAllAreas();
 
-        return ResponseEntity.ok(stories);
+        return ResponseEntity.ok(areas);
     }
 
     @PostMapping("/area")

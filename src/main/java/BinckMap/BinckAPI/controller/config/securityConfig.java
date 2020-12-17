@@ -1,4 +1,4 @@
-package BinckMap.BinckAPI.controller;
+package BinckMap.BinckAPI.controller.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/story").permitAll()
+                .antMatchers("/story", "/building", "/area").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
