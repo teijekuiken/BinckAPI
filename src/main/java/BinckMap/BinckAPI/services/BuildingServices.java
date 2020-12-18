@@ -35,7 +35,7 @@ public class BuildingServices {
     }
 
     public BuildingResponseBody setBuilding(BuildingRequestBody buildingRequestBody) {
-        Building building = new Building(buildingRequestBody.getName(), buildingRequestBody.getDescription());
+        Building building = new Building(buildingRequestBody.getName(), buildingRequestBody.getDescription(), buildingRequestBody.getLongtitude(), buildingRequestBody.getLattitude());
 
         buildingRepository.save(building);
 

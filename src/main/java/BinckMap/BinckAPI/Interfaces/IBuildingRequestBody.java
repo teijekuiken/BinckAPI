@@ -8,4 +8,12 @@ public interface IBuildingRequestBody {
     String getDescription();
     void setDescription(String description);
 
+    String getLattitude();
+    void setLattitude(String lattitude);
+
+    String getLongtitude();
+    void setLongtitude(String lattitude);
+
+
+
 }

@@ -7,11 +7,17 @@ public class BuildingRequestBody implements IBuildingRequestBody {
 
     private String name;
     private String description;
+    private String longtitude;
+    private String lattitude;
 
     public BuildingRequestBody(@JsonProperty("name") String name,
-                           @JsonProperty("description") String description) {
+                           @JsonProperty("description") String description,
+                               @JsonProperty("longtitude") String longtitude,
+                               @JsonProperty("lattitude") String lattitude) {
         this.name = name;
         this.description = description;
+        this.longtitude = longtitude;
+        this.lattitude = lattitude;
     }
 
     @Override
@@ -35,4 +41,23 @@ public class BuildingRequestBody implements IBuildingRequestBody {
 
     }
 
+    @Override
+    public String getLongtitude() {
+        return longtitude;
+    }
+
+    @Override
+    public void setLongtitude(String longtitude) {
+        this.longtitude = longtitude;
+    }
+
+    @Override
+    public String getLattitude() {
+        return lattitude;
+    }
+
+    @Override
+    public void setLattitude(String lattitude) {
+        this.lattitude = lattitude;
+    }
 }

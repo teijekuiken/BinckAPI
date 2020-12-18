@@ -22,10 +22,18 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<Story> stories;
 
+    @Column
+    private String Longtitude;
 
-    public Building(String name, String description) {
+    @Column
+    private String Lattitude;
+
+
+    public Building(String name, String description, String longtitude, String lattitude) {
         this.name = name;
         this.description = description;
+        this.Longtitude = longtitude;
+        this.Lattitude = lattitude;
     }
 
     public Building() {
@@ -63,4 +71,19 @@ public class Building {
         this.stories = stories;
     }
 
+    public String getLongtitude() {
+        return Longtitude;
+    }
+
+    public void setLongtitude(String longtitude) {
+        Longtitude = longtitude;
+    }
+
+    public String getLattitude() {
+        return Lattitude;
+    }
+
+    public void setLattitude(String lattitude) {
+        Lattitude = lattitude;
+    }
 }

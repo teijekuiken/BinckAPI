@@ -25,6 +25,7 @@ public class StoryController {
         return ResponseEntity.ok(story);
     }
 
+    @CrossOrigin
     @GetMapping("/story")
     public ResponseEntity<List<Story>> getAllStories() {
         List<Story> stories = storyServices.getAllStories();
