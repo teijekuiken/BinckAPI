@@ -3,6 +3,7 @@ package BinckMap.BinckAPI.services;
 import BinckMap.BinckAPI.DAO.BuildingRepository;
 import BinckMap.BinckAPI.DAO.StoryRepository;
 import BinckMap.BinckAPI.controller.model.BuildingRequestBody;
+import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.model.BuildingResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public class BuildingServices {
             return null;
         }
         return building.get();
+    }
+
+    public Building getBuildingByName(String name, List<Building> buildings){
+        for (Building building : buildings){
+            building.getName().equals(name);{
+                return building;
+            }
+        } return null;
     }
 
     public List<Building> getAllBuildings(){

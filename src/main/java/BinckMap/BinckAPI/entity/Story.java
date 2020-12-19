@@ -1,5 +1,7 @@
 package BinckMap.BinckAPI.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -19,6 +21,7 @@ public class Story {
     @Column
     private String story;
 
+    @JsonIgnore
     @ManyToOne
     private User user;
 

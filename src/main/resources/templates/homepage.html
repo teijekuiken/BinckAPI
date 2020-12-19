@@ -71,7 +71,7 @@
         <fieldset>
             <legend ><i class="far fa-thumbs-up"></i> Welkom!</legend>
             <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
-            <form th:action="@{/story}" method="post" >
+            <form th:action="@{/homepage}" method="post" >
                 <div >
                     <label>Kies het gebied/gebouw voor het verhaal:</label>
                     <br>
@@ -90,7 +90,11 @@
                     </select>
                     <br>
                     <br>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <label for="subject">Onderwerp</label>
+                    <input type="subject" class="form-control" id="subject" placeholder="Onderwerp van het verhaal">
+                    <br>
+                    <label for="story">Het verhaal</label>
+                    <textarea class="form-control" rows="5" id="story"></textarea>
                     <br>
                     <br>
                     <input type="submit" class="btn btn-info" value="Voeg verhaal toe.">
