@@ -2,7 +2,7 @@ package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.AreaRepository;
 import BinckMap.BinckAPI.DAO.StoryRepository;
-import BinckMap.BinckAPI.controller.model.AreaRequestBody;
+import BinckMap.BinckAPI.controller.model.Request.AreaRequestBody;
 import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.services.model.AreaResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;

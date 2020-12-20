@@ -1,7 +1,7 @@
 package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.StoryRepository;
-import BinckMap.BinckAPI.controller.model.StoryRequestBody;
+import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
 import BinckMap.BinckAPI.services.model.StoryResponseBody;

@@ -18,7 +18,8 @@ public class Area {
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "area")
+    @OneToMany
+    @JoinColumn(name="area_id")
     private List<Story> stories;
 
     @Column
@@ -40,11 +41,9 @@ public class Area {
         this.long1 = long1;
         this.lat2 = lat2;
         this.long2 = long2;
-
     }
 
     public Area() {
-
     }
 
     public Long getId() {

@@ -26,6 +26,7 @@ public class Story {
     private User user;
 
     @ManyToOne
+    @JoinColumn(name="area_id", referencedColumnName = "id")
     private Area area;
 
     @ManyToOne

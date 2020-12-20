@@ -1,12 +1,11 @@
 package BinckMap.BinckAPI.controller;
 
-import BinckMap.BinckAPI.controller.model.AreaRequestBody;
+import BinckMap.BinckAPI.controller.model.Request.AreaRequestBody;
 import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.services.AreaServices;
 import BinckMap.BinckAPI.services.model.AreaResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +25,7 @@ public class AreaController {
         return ResponseEntity.ok(area);
     }
 
+    @CrossOrigin
     @GetMapping("/area")
     public ResponseEntity<List<Area>> getAllAreas() {
         List<Area> areas = areaServices.getAllAreas();

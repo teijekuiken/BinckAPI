@@ -1,18 +1,15 @@
 package BinckMap.BinckAPI.controller;
 
-import BinckMap.BinckAPI.controller.model.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.AreaServices;
 import BinckMap.BinckAPI.services.BuildingServices;
 import BinckMap.BinckAPI.services.StoryServices;
-import BinckMap.BinckAPI.services.model.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package BinckMap.BinckAPI.controller.model;
+package BinckMap.BinckAPI.controller.model.Request;
 
 import BinckMap.BinckAPI.Interfaces.IAreaRequestBody;
 import com.fasterxml.jackson.annotation.JsonProperty;
