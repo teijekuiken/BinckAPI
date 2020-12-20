@@ -43,11 +43,11 @@ public class AreaServices {
     }
 
     public AreaResponseBody setArea(AreaRequestBody areaRequestBody) {
-        Area area = new Area(areaRequestBody.getName(), areaRequestBody.getDescription());
+        Area area = new Area(areaRequestBody.getName(), areaRequestBody.getDescription(), areaRequestBody.getLat1(), areaRequestBody.getLong1(), areaRequestBody.getLat2(), areaRequestBody.getLong2());
 
         areaRepository.save(area);
 
-        AreaResponseBody areaResponseBody = new AreaResponseBody(area.getName(), area.getDescription());
+        AreaResponseBody areaResponseBody = new AreaResponseBody(area.getName(), area.getDescription(), area.getLat1(), area.getLong1(), area.getLat2(), area.getLat2());
         return areaResponseBody;
     }
 
