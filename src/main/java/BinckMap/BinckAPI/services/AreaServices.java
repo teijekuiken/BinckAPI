@@ -47,7 +47,7 @@ public class AreaServices {
 
         areaRepository.save(area);
 
-        AreaResponseBody areaResponseBody = new AreaResponseBody(area.getName(), area.getDescription(), area.getLat1(), area.getLong1(), area.getLat2(), area.getLat2());
+        AreaResponseBody areaResponseBody = new AreaResponseBody(area.getName(), area.getDescription(), area.getLat1(), area.getLong1(), area.getLat2(), area.getLong2());
         return areaResponseBody;
     }
 
