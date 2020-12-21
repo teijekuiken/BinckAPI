@@ -73,6 +73,12 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.5.3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.earcam.maven.plugin/io.earcam.maven.plugin.netlify -->
+		<dependency>
+			<groupId>io.earcam.maven.plugin</groupId>
+			<artifactId>io.earcam.maven.plugin.netlify</artifactId>
+			<version>0.0.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
