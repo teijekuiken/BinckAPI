@@ -1,6 +1,6 @@
 package BinckMap.BinckAPI.controller;
 
-import BinckMap.BinckAPI.controller.model.BuildingRequestBody;
+import BinckMap.BinckAPI.controller.model.Request.BuildingRequestBody;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.BuildingServices;
 import BinckMap.BinckAPI.services.model.BuildingResponseBody;
