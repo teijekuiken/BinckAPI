@@ -71,7 +71,7 @@
         <fieldset>
             <legend ><i class="far fa-thumbs-up"></i> Welkom!</legend>
             <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
-            <form th:action="@{/homepage}" method="post" >
+            <form th:action="@{/story}" th:object="${story}" method="post">
                 <div >
                     <label>Kies het gebied/gebouw voor het verhaal:</label>
                     <br>

@@ -32,6 +32,10 @@ public class Story {
     @ManyToOne
     private Building building;
 
+    @ManyToOne
+    @JoinColumn(name="company_id", referencedColumnName = "id")
+    private Company company;
+
     @Column
     private Date publicationDate;
 
@@ -122,5 +126,13 @@ public class Story {
 
     public void setBuilding(Building building) {
         this.building = building;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
