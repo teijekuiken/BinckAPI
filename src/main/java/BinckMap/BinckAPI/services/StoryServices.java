@@ -35,7 +35,7 @@ public class StoryServices {
 
     public StoryResponseBody setStory(StoryRequestBody storyRequestBody) {
         User user = userDetailsService.getUserById(storyRequestBody.getId());
-        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getPublicationDate(), storyRequestBody.getCreationDate());
+        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getCreationDate(), storyRequestBody.getPublicationDate());
 
         storyRepository.save(story);
 

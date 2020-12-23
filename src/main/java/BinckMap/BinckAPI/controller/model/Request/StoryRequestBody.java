@@ -4,6 +4,7 @@ import BinckMap.BinckAPI.Interfaces.IStoryRequestBody;
 import BinckMap.BinckAPI.entity.Area;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
 import java.util.UUID;
 
 
