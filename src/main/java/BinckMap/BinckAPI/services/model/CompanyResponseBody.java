@@ -1,9 +1,8 @@
-package BinckMap.BinckAPI.controller.model.Request;
+package BinckMap.BinckAPI.services.model;
 
-import BinckMap.BinckAPI.Interfaces.IBuildingRequestBody;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import BinckMap.BinckAPI.Interfaces.ICompanyResponseBody;
 
-public class BuildingRequestBody implements IBuildingRequestBody {
+public class CompanyResponseBody implements ICompanyResponseBody {
 
     private String name;
     private String description;
@@ -12,12 +11,7 @@ public class BuildingRequestBody implements IBuildingRequestBody {
     private double long1;
     private double long2;
 
-    public BuildingRequestBody(@JsonProperty("name") String name,
-                               @JsonProperty("description") String description,
-                               @JsonProperty("lat1") double lat1,
-                               @JsonProperty("long1") double long1,
-                               @JsonProperty("lat2") double lat2,
-                               @JsonProperty("long2") double long2) {
+    public CompanyResponseBody(String name, String description, double lat1, double long1, double lat2, double long2) {
         this.name = name;
         this.description = description;
         this.lat1 = lat1;
@@ -28,22 +22,24 @@ public class BuildingRequestBody implements IBuildingRequestBody {
 
     @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     @Override
-    public void setName(String Name) {
+    public void setName(String name) {
         this.name = name;
+
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     @Override
     public void setDescription(String description) {
         this.description = description;
+
     }
 
     public double getLat1() {
@@ -77,4 +73,5 @@ public class BuildingRequestBody implements IBuildingRequestBody {
     public void setLong2(double long2) {
         this.long2 = long2;
     }
+
 }

@@ -14,19 +14,31 @@ public class Company {
     @Column
     private String name;
 
+    @Column
+    private String description;
+
     @OneToMany(mappedBy = "company")
     private List<Story> stories;
 
     @Column
-    private String Longitude;
+    private double lat1;
 
     @Column
-    private String Latitude;
+    private double long1;
 
-    public Company(String name, String longtitude, String lattitude) {
+    @Column
+    private double lat2;
+
+    @Column
+    private double long2;
+
+    public Company(String name, String description, double lat1, double long1, double lat2, double long2) {
         this.name = name;
-        this.Longitude = longtitude;
-        this.Latitude = lattitude;
+        this.description = description;
+        this.lat1 = lat1;
+        this.long1 = long1;
+        this.lat2 = lat2;
+        this.long2 = long2;
     }
 
     public Company() {
@@ -56,19 +68,43 @@ public class Company {
         this.stories = stories;
     }
 
-    public String getLongitude() {
-        return Longitude;
+    public String getDescription() {
+        return description;
     }
 
-    public void setLongitude(String longitude) {
-        Longitude = longitude;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getLatitude() {
-        return Latitude;
+    public double getLat1() {
+        return lat1;
     }
 
-    public void setLatitude(String latitude) {
-        Latitude = latitude;
+    public void setLat1(double lat1) {
+        this.lat1 = lat1;
+    }
+
+    public double getLong1() {
+        return long1;
+    }
+
+    public void setLong1(double long1) {
+        this.long1 = long1;
+    }
+
+    public double getLat2() {
+        return lat2;
+    }
+
+    public void setLat2(double lat2) {
+        this.lat2 = lat2;
+    }
+
+    public double getLong2() {
+        return long2;
+    }
+
+    public void setLong2(double long2) {
+        this.long2 = long2;
     }
 }

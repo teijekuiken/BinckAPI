@@ -18,7 +18,7 @@ public class AreaController {
     private AreaServices areaServices;
 
     @GetMapping("/area/{areaId}")
-    public ResponseEntity<Area> getArea(@PathVariable UUID areaId) {
+    public ResponseEntity<Area> getArea(@PathVariable long areaId) {
 
         Area area = areaServices.getAreaById(areaId);
 

@@ -18,13 +18,14 @@ public class BuildingController {
     private BuildingServices buildingServices;
 
     @GetMapping("/building/{buildingId}")
-    public ResponseEntity<Building> getBuilding(@PathVariable UUID buildingId) {
+    public ResponseEntity<Building> getBuilding(@PathVariable long buildingId) {
 
         Building building = buildingServices.getBuildingById(buildingId);
 
         return ResponseEntity.ok(building);
     }
 
+    @CrossOrigin
     @GetMapping("/building")
     public ResponseEntity<List<Building>> getAllStories() {
         List<Building> buildings = buildingServices.getAllBuildings();

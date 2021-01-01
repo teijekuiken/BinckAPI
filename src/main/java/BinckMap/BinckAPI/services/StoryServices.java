@@ -2,6 +2,7 @@ package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.StoryRepository;
 import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
+import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
 import BinckMap.BinckAPI.services.model.StoryResponseBody;
@@ -20,6 +21,9 @@ public class StoryServices {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private BuildingServices buildingServices;
+
     public Story getStoryById(UUID storyId) {
         Optional<Story> story = storyRepository.findById(storyId);
         if (story.isEmpty()) {
@@ -35,7 +39,12 @@ public class StoryServices {
 
     public StoryResponseBody setStory(StoryRequestBody storyRequestBody) {
         User user = userDetailsService.getUserById(storyRequestBody.getId());
-        Story story = new Story(storyRequestBody.getSubject(), storyRequestBody.getVerhaal(), user, storyRequestBody.getCreationDate(), storyRequestBody.getPublicationDate());
+        Building building = buildingServices.getBuildingById(storyRequestBody.getBuildingId());
+        Story story = new Story();
+        story.setBuilding(building);
+        story.setUser(user);
+        story.setSubject(storyRequestBody.getSubject());
+        story.setStory(storyRequestBody.getVerhaal());
 
         storyRepository.save(story);
 

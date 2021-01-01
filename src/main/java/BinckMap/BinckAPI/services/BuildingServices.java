@@ -21,7 +21,7 @@ public class BuildingServices {
     @Autowired
     private StoryRepository storyRepository;
 
-    public Building getBuildingById(UUID buildingId){
+    public Building getBuildingById(long buildingId){
         Optional<Building> building = buildingRepository.findById(buildingId);
         if(building.isEmpty()){
             return null;
@@ -43,11 +43,11 @@ public class BuildingServices {
     }
 
     public BuildingResponseBody setBuilding(BuildingRequestBody buildingRequestBody) {
-        Building building = new Building(buildingRequestBody.getName(), buildingRequestBody.getDescription(), buildingRequestBody.getLongtitude(), buildingRequestBody.getLattitude());
+        Building building = new Building(buildingRequestBody.getName(), buildingRequestBody.getDescription(), buildingRequestBody.getLat1(), buildingRequestBody.getLong1(), buildingRequestBody.getLat2(), buildingRequestBody.getLong2());
 
         buildingRepository.save(building);
 
-        BuildingResponseBody buildingResponseBody = new BuildingResponseBody(building.getName(), building.getDescription());
+        BuildingResponseBody buildingResponseBody = new BuildingResponseBody(building.getName(), building.getDescription(), building.getLat1(), building.getLong1(), building.getLat2(), building.getLong2());
         return buildingResponseBody;
     }
     

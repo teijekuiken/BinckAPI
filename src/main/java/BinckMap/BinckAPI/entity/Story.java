@@ -19,20 +19,24 @@ public class Story {
     @Column
     private String subject;
 
-    @Column
+    @Column(length = 50000)
     private String story;
 
     @JsonIgnore
     @ManyToOne
     private User user;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="area_id", referencedColumnName = "id")
     private Area area;
 
+    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name="building_id", referencedColumnName = "id")
     private Building building;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="company_id", referencedColumnName = "id")
     private Company company;
@@ -46,12 +50,11 @@ public class Story {
     @Column
     private boolean published;
 
-    public Story(String subject, String story, User user, Date publicationDate, Date creationDate) {
+    public Story(String subject, String story, User user, Building building) {
         this.subject = subject;
         this.story = story;
         this.user = user;
-        this.publicationDate = publicationDate;
-        this.creationDate = creationDate;
+        this.building = building;
     }
 
     public Story() {

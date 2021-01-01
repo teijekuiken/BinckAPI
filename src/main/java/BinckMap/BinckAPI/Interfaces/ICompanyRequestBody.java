@@ -1,7 +1,6 @@
 package BinckMap.BinckAPI.Interfaces;
 
-public interface IBuildingRequestBody {
-
+public interface ICompanyRequestBody {
     String getName();
     void setName(String Name);
 
@@ -19,7 +18,4 @@ public interface IBuildingRequestBody {
 
     double getLong2();
     void setLong2(double lat1);
-
-
-
 }

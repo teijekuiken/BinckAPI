@@ -10,8 +10,8 @@ import java.util.UUID;
 public class Building {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    private UUID id;
+    @GeneratedValue
+    private long id;
 
     @Column
     private String name;
@@ -19,31 +19,39 @@ public class Building {
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany
+    @JoinColumn(name="building_id")
     private List<Story> stories;
 
     @Column
-    private String Longtitude;
+    private double lat1;
 
     @Column
-    private String Lattitude;
+    private double long1;
 
+    @Column
+    private double lat2;
 
-    public Building(String name, String description, String longtitude, String lattitude) {
+    @Column
+    private double long2;
+
+    public Building(String name, String description, double lat1, double long1, double lat2, double long2) {
         this.name = name;
         this.description = description;
-        this.Longtitude = longtitude;
-        this.Lattitude = lattitude;
+        this.lat1 = lat1;
+        this.long1 = long1;
+        this.lat2 = lat2;
+        this.long2 = long2;
     }
 
     public Building() {
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -71,19 +79,35 @@ public class Building {
         this.stories = stories;
     }
 
-    public String getLongtitude() {
-        return Longtitude;
+    public double getLat1() {
+        return lat1;
     }
 
-    public void setLongtitude(String longtitude) {
-        Longtitude = longtitude;
+    public void setLat1(double lat1) {
+        this.lat1 = lat1;
     }
 
-    public String getLattitude() {
-        return Lattitude;
+    public double getLong1() {
+        return long1;
     }
 
-    public void setLattitude(String lattitude) {
-        Lattitude = lattitude;
+    public void setLong1(double long1) {
+        this.long1 = long1;
+    }
+
+    public double getLat2() {
+        return lat2;
+    }
+
+    public void setLat2(double lat2) {
+        this.lat2 = lat2;
+    }
+
+    public double getLong2() {
+        return long2;
+    }
+
+    public void setLong2(double long2) {
+        this.long2 = long2;
     }
 }

@@ -11,30 +11,34 @@ import java.util.UUID;
 
 public class StoryRequestBody implements IStoryRequestBody {
 
-    private UUID id;
+    private UUID userId;
+    private long buildingId;
     private String subject;
     private String verhaal;
     private Date publicationDate;
     private Date creationDate;
 
-    public StoryRequestBody(@JsonProperty("userId")UUID id,
+    public StoryRequestBody(@JsonProperty("userId")UUID userid,
+                            @JsonProperty("buildingId") long buildingId,
                             @JsonProperty("subject") String subject,
-                            @JsonProperty("verhaal") String verhaal,
-                            @JsonProperty("publicationDate") Date publicationDate,
-                            @JsonProperty("creationDate") Date creationDate) {
-        this.id = id;
+                            @JsonProperty("verhaal") String verhaal)
+//                            @JsonProperty("publicationDate") Date publicationDate,
+//                            @JsonProperty("creationDate") Date creationDate)
+    {
+        this.userId = userid;
+        this.buildingId = buildingId;
         this.subject = subject;
         this.verhaal = verhaal;
-        this.publicationDate = publicationDate;
-        this.creationDate = creationDate;
+//        this.publicationDate = publicationDate;
+//        this.creationDate = creationDate;
     }
 
     public UUID getId() {
-        return id;
+        return userId;
     }
 
     public void setId(UUID id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getSubject() {
@@ -67,5 +71,21 @@ public class StoryRequestBody implements IStoryRequestBody {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+
+    public long getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(long buildingId) {
+        this.buildingId = buildingId;
     }
 }

@@ -1,9 +1,9 @@
 package BinckMap.BinckAPI.controller.model.Request;
 
-import BinckMap.BinckAPI.Interfaces.IBuildingRequestBody;
+import BinckMap.BinckAPI.Interfaces.ICompanyRequestBody;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BuildingRequestBody implements IBuildingRequestBody {
+public class CompanyRequestBody implements ICompanyRequestBody {
 
     private String name;
     private String description;
@@ -12,7 +12,7 @@ public class BuildingRequestBody implements IBuildingRequestBody {
     private double long1;
     private double long2;
 
-    public BuildingRequestBody(@JsonProperty("name") String name,
+    public CompanyRequestBody(@JsonProperty("name") String name,
                                @JsonProperty("description") String description,
                                @JsonProperty("lat1") double lat1,
                                @JsonProperty("long1") double long1,

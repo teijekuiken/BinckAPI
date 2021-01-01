@@ -21,7 +21,7 @@ public class AreaServices {
     @Autowired
     private StoryRepository storyRepository;
 
-    public Area getAreaById(UUID areaId){
+    public Area getAreaById(long areaId){
         Optional<Area> area = areaRepository.findById(areaId);
         if(area.isEmpty()){
             return null;
