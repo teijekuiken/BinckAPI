@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
     <title>Binck verhalen</title>
 
-<!--    <link rel="stylesheet" href="../static/css/style.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/style.css">-->
     <style>
         body{
             margin: 0;
@@ -50,10 +50,12 @@
             padding: 10px;
             z-index: 2;
         }
-        </style>
+
+    </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
@@ -67,40 +69,33 @@
 <div class="body"></div>
 <div class="grad"></div>
 <div class="container">
-    <form>
-        <fieldset>
-            <legend ><i class="far fa-thumbs-up"></i> Welkom!</legend>
-            <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
-            <form th:action="@{/story}" th:object="${story}" method="post">
-                <div >
-                    <label>Kies het gebied/gebouw voor het verhaal:</label>
-                    <br>
-                    <select data-live-search="true" class="selectpicker"
-                            title="Maak een keuze">
-                        <optgroup label="gebieden">
-                        <option data-tokens="gebied"
-                                th:each="area:${areas}"
-                                th:text="${area.name}"></option>
-                        </optgroup>
-                        <optgroup label="gebouwen">
-                        <option data-tokens="gebouw"
-                                th:each="building:${buildings}"
-                                th:text="${building.name}"></option>
-                        </optgroup>
-                    </select>
-                    <br>
-                    <br>
-                    <label for="subject">Onderwerp</label>
-                    <input type="subject" class="form-control" id="subject" placeholder="Onderwerp van het verhaal">
-                    <br>
-                    <label for="story">Het verhaal</label>
-                    <textarea class="form-control" rows="5" id="story"></textarea>
-                    <br>
-                    <br>
-                    <input type="submit" class="btn btn-info" value="Voeg verhaal toe.">
-                </div>
-            </form>
-        </fieldset>
+    <legend><i class="far fa-thumbs-up"></i> Welkom!</legend>
+    <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
+    <form th:action="@{/homepage}" th:object="${storyForm}" method="post">
+        <label>Kies het gebied/gebouw voor het verhaal:</label>
+        <br>
+        <select data-live-search="true" class="selectpicker"
+                title="Maak een keuze">
+            <optgroup label="gebieden">
+                <option data-tokens="gebied"
+                        th:each="area:${areas}"
+                        th:value="${area}"
+                        th:text="${area.name}"></option>
+            </optgroup>
+            <optgroup label="gebouwen">
+                <option data-tokens="gebouw"
+                        th:each="building:${buildings}"
+                        th:value="${building}"
+                        th:text="${building.name}"
+                ></option>
+            </optgroup>
+        </select>
+        <br>
+        <br>
+        <p><input type="text" th:field="*{subject}" placeholder="Onderwerp van het verhaal" /></p>
+        <p>Het verhaal: <textarea class="form-control" rows="5" th:field="*{story}"></textarea></p>
+        <p><input type="submit" class="btn btn-info" value="Voeg het verhaal toe."/></p>
+    </form>
 
         <fieldset>
             <a href="#" th:href="@{/logout}">
@@ -108,7 +103,6 @@
                 Uitloggen
             </a>
         </fieldset>
-    </form>
 </div>
 </body>
 </html>

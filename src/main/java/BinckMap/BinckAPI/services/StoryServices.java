@@ -2,6 +2,7 @@ package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.StoryRepository;
 import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
+import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
@@ -51,6 +52,15 @@ public class StoryServices {
         StoryResponseBody storyResponseBody = new StoryResponseBody(user.getFirstName(), story.getSubject(), story.getStory());
 
         return storyResponseBody;
+    }
+
+    public void addStory(Area area, Building building, String subject, String stories) {
+        Story story = new Story();
+        story.setArea(story.getArea());
+        story.setBuilding(story.getBuilding());
+        story.setSubject(subject);
+        story.setStory(stories);
+        storyRepository.save(story);
     }
 
 }

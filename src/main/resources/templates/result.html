@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Submission result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1 th:text="'onderwerp: ' + ${storyForm.subject} + ' en het verhaal: ' + ${storyForm.story}"></h1th:text></h1>
+</body>
+
+<fieldset>
+    <a href="#" th:href="@{/homepage}">
+        terug naar de homepage
+    </a>
+</fieldset>
+
+</html>
