@@ -74,7 +74,7 @@
     <form th:action="@{/homepage}" th:object="${storyForm}" method="post">
         <label>Kies het gebied/gebouw voor het verhaal:</label>
         <br>
-        <select data-live-search="true" class="selectpicker"
+        <select th:field*{area} data-live-search="true" class="selectpicker"
                 title="Maak een keuze">
             <optgroup label="gebieden">
                 <option data-tokens="gebied"
@@ -87,6 +87,13 @@
                         th:each="building:${buildings}"
                         th:value="${building}"
                         th:text="${building.name}"
+                ></option>
+            </optgroup>
+            <optgroup label="bedrijven">
+                <option data-tokens="bedrijf"
+                        th:each="company:${companies}"
+                        th:value="${company}"
+                        th:text="${company.name}"
                 ></option>
             </optgroup>
         </select>

@@ -8,6 +8,8 @@ import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.entity.User;
 import BinckMap.BinckAPI.services.model.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,12 +56,13 @@ public class StoryServices {
         return storyResponseBody;
     }
 
-    public void addStory(Area area, Building building, String subject, String stories) {
-        Story story = new Story();
-        story.setArea(story.getArea());
-        story.setBuilding(story.getBuilding());
-        story.setSubject(subject);
-        story.setStory(stories);
+    public void addStory(Story story) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        User user = userDetailsService.getUserByEmail(currentPrincipalName);
+        story.setUser(user);
         storyRepository.save(story);
     }
 
