@@ -57,6 +57,7 @@ public class StoryServices {
     }
 
     public void addStory(Story story) {
+        Area area = new Area();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();

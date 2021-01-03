@@ -72,35 +72,49 @@
     <legend><i class="far fa-thumbs-up"></i> Welkom!</legend>
     <p th:inline="text">Hallo [[${#httpServletRequest.remoteUser}]]!</p>
     <form th:action="@{/homepage}" th:object="${storyForm}" method="post">
-        <label>Kies het gebied/gebouw voor het verhaal:</label>
+        <label>Kies een gebied voor het verhaal:</label>
         <br>
-        <select th:field*{area} data-live-search="true" class="selectpicker"
+        <select th:field="*{area}" data-live-search="true" class="selectpicker"
                 title="Maak een keuze">
             <optgroup label="gebieden">
                 <option data-tokens="gebied"
                         th:each="area:${areas}"
-                        th:value="${area}"
+                        th:value="${area.id}"
                         th:text="${area.name}"></option>
             </optgroup>
+        </select>
+        <br>
+        <label>Kies een gebouw voor het verhaal:</label>
+        <br>
+        <select th:field="*{building}" data-live-search="true" class="selectpicker"
+                title="Maak een keuze">
             <optgroup label="gebouwen">
                 <option data-tokens="gebouw"
                         th:each="building:${buildings}"
-                        th:value="${building}"
+                        th:value="${building.id}"
                         th:text="${building.name}"
                 ></option>
             </optgroup>
+        </select>
+        <br>
+        <label>Kies een bedrijf voor het verhaal:</label>
+        <br>
+        <select th:field="*{company}" data-live-search="true" class="selectpicker"
+                title="Maak een keuze">
             <optgroup label="bedrijven">
                 <option data-tokens="bedrijf"
                         th:each="company:${companies}"
-                        th:value="${company}"
+                        th:value="${company.id}"
                         th:text="${company.name}"
                 ></option>
             </optgroup>
         </select>
         <br>
         <br>
+        <label>Het onderwerp:</label>
         <p><input type="text" th:field="*{subject}" placeholder="Onderwerp van het verhaal" /></p>
-        <p>Het verhaal: <textarea class="form-control" rows="5" th:field="*{story}"></textarea></p>
+        <label>Het verhaal:</label>
+        <p><textarea class="form-control" rows="5" th:field="*{story}"></textarea></p>
         <p><input type="submit" class="btn btn-info" value="Voeg het verhaal toe."/></p>
     </form>
 

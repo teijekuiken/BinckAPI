@@ -1,16 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Submission result</title>
+    <title>Toegevoegd verhaal</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1 th:text="'onderwerp: ' + ${storyForm.subject} + ' en het verhaal: ' + ${storyForm.story}"></h1th:text></h1>
+<h1 th:text="'Het gebied: '"></h1>
+<p1 th:text="${storyForm.area.name}"></p1>
+<h1 th:text="'Het gebouw: '"></h1>
+<p1 th:text="${storyForm.building.name}"></p1>
+<h1 th:text="'Het bedrijf: '"></h1>
+<p1 th:text="${storyForm.company.name}"></p1>
+<h1 th:text="'Onderwerp: '"></h1>
+<p1 th:text="${storyForm.subject}"></p1>
+<h1 th:text="'Het verhaal: '"></h1>
+<p1 th:text="${storyForm.story}"></p1>
+
 </body>
 
 <fieldset>
     <a href="#" th:href="@{/homepage}">
-        terug naar de homepage
+        Terug naar Binck verhalen
     </a>
 </fieldset>
 
