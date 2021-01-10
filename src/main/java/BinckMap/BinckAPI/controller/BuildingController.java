@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin(origins = { "http://localhost:8082"})
 @RestController
 public class BuildingController {
 
@@ -35,8 +34,8 @@ public class BuildingController {
     }
 
     @PostMapping("/building")
-    public BuildingResponseBody addBuilding(@RequestBody BuildingRequestBody buildingRequestBody) {
-        return buildingServices.setBuilding(buildingRequestBody);
+    public List<Building> addBuildings(@RequestBody List<BuildingRequestBody> buildingRequestBody) {
+        return buildingServices.setBuildings(buildingRequestBody);
     }
     
 }

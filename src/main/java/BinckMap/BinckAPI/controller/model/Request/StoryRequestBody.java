@@ -33,6 +33,9 @@ public class StoryRequestBody implements IStoryRequestBody {
 //        this.creationDate = creationDate;
     }
 
+
+    public StoryRequestBody(){}
+
     public UUID getId() {
         return userId;
     }

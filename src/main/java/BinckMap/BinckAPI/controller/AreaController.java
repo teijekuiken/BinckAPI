@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin(origins = { "http://localhost:8082"})
 @RestController
 public class AreaController {
 
@@ -35,7 +34,7 @@ public class AreaController {
     }
 
     @PostMapping("/area")
-    public AreaResponseBody addArea(@RequestBody AreaRequestBody areaRequestBody) {
-        return areaServices.setArea(areaRequestBody);
+    public List<Area> addAreas(@RequestBody List<AreaRequestBody> areas) {
+        return areaServices.setAreas(areas);
     }
 }

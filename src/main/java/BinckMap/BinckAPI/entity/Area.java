@@ -1,5 +1,7 @@
 package BinckMap.BinckAPI.entity;
 
+import org.springframework.stereotype.Service;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -13,10 +15,22 @@ public class Area {
     private Long id;
 
     @Column
-    private String name;
+    private String labelType;
 
     @Column
+    private String name;
+
+    @Column(length = 50000)
     private String description;
+
+    @Column(length = 50000)
+    private String status;
+
+    @Column
+    private String ontwikkelaar;
+
+    @Column(length = 50000)
+    private String programma;
 
     @OneToMany
     @JoinColumn(name="area_id")
@@ -34,9 +48,12 @@ public class Area {
     @Column
     private double long2;
 
-    public Area(String name, String description, double lat1, double long1, double lat2, double long2) {
+    public Area(String name, String labelType, String ontwikkelaar, String programma, String status, String description, double lat1, double long1, double lat2, double long2) {
         this.name = name;
         this.description = description;
+        this.programma = programma;
+        this.ontwikkelaar = ontwikkelaar;
+        this.status = status;
         this.lat1 = lat1;
         this.long1 = long1;
         this.lat2 = lat2;
@@ -108,5 +125,37 @@ public class Area {
 
     public void setLong2(double long2) {
         this.long2 = long2;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getOntwikkelaar() {
+        return ontwikkelaar;
+    }
+
+    public void setOntwikkelaar(String ontwikkelaar) {
+        this.ontwikkelaar = ontwikkelaar;
+    }
+
+    public String getProgramma() {
+        return programma;
+    }
+
+    public void setProgramma(String programma) {
+        this.programma = programma;
+    }
+
+    public String getLabelType() {
+        return labelType;
+    }
+
+    public void setLabelType(String labelType) {
+        this.labelType = labelType;
     }
 }

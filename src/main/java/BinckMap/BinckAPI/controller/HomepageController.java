@@ -1,17 +1,9 @@
 package BinckMap.BinckAPI.controller;
-
 import BinckMap.BinckAPI.entity.*;
-import BinckMap.BinckAPI.services.AreaServices;
-import BinckMap.BinckAPI.services.BuildingServices;
-import BinckMap.BinckAPI.services.CompanyService;
-import BinckMap.BinckAPI.services.StoryServices;
+import BinckMap.BinckAPI.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,9 +37,9 @@ public class HomepageController {
     }
 
     @PostMapping("/homepage")
-    public String addStory(@ModelAttribute("storyForm") Story story) {
+    public String addStory(@ModelAttribute("storyForm")Story story) {
 //todo de return staat tijdelijk op result ipv homepage, zodat je kan zien dat het werkt.
         storyServices.addStory(story);
-        return "result";
+        return "homepage";
     }
 }
