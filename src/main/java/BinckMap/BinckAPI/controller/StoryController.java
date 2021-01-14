@@ -1,5 +1,6 @@
 package BinckMap.BinckAPI.controller;
 
+import BinckMap.BinckAPI.DAO.StoryRepository;
 import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.services.StoryServices;
@@ -16,6 +17,9 @@ public class StoryController {
 
     @Autowired
     private StoryServices storyServices;
+
+    @Autowired
+    private StoryRepository storyRepository;
 
     @GetMapping("/story/{storyId}")
     public ResponseEntity<Story> getStory(@PathVariable UUID storyId) {
@@ -38,6 +42,17 @@ public class StoryController {
         return storyServices.setStory(storyRequestBody);
     }
 
+    @PutMapping("/updatestory/{storyId}")
+    public StoryResponseBody updateStory(@RequestBody StoryRequestBody newStory, @PathVariable UUID storyId) {
 
+        Story storyToUpdate = storyServices.getStoryById(storyId);
+        storyToUpdate.setStory(newStory.getVerhaal());
+        storyToUpdate.setSubject(newStory.getSubject());
+        storyRepository.save(storyToUpdate);
+
+        StoryResponseBody storyResponseBody = new StoryResponseBody(storyToUpdate.getUser().getFirstName(), storyToUpdate.getSubject(), storyToUpdate.getStory());
+
+        return storyResponseBody;
+    }
 
 }
