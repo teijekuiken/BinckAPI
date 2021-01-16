@@ -40,8 +40,8 @@ public class CompanyController {
     }
 
     @PostMapping("/company")
-    public CompanyResponseBody addcompany(@RequestBody CompanyRequestBody companyRequestBody) {
-        return companyService.setCompany(companyRequestBody);
+    public List<Company> addcompanies(@RequestBody List<CompanyRequestBody> companyRequestBody) {
+        return companyService.setCompanies(companyRequestBody);
     }
 
 }

@@ -21,10 +21,16 @@ public class Company {
     private List<Story> stories;
 
     @Column(length = 50000)
+    private String status;
+
+    @Column(length = 50000)
+    private String Ontwikkelaar;
+
+    @Column(length = 50000)
     private String programma;
 
     @Column
-    private String status;
+    private String labelType;
 
     @Column
     private double lat1;
@@ -128,5 +134,21 @@ public class Company {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getOntwikkelaar() {
+        return Ontwikkelaar;
+    }
+
+    public void setOntwikkelaar(String ontwikkelaar) {
+        Ontwikkelaar = ontwikkelaar;
+    }
+
+    public String getLabelType() {
+        return labelType;
+    }
+
+    public void setLabelType(String labelType) {
+        this.labelType = labelType;
     }
 }
