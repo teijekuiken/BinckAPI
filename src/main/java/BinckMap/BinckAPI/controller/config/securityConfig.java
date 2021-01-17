@@ -1,46 +1,57 @@
 package BinckMap.BinckAPI.controller.config;
 
+import BinckMap.BinckAPI.filters.JWTRequestFilter;
+import BinckMap.BinckAPI.services.MyUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 @Configuration
 @EnableWebSecurity
 public class securityConfig extends WebSecurityConfigurerAdapter {
-    private static final String ENCODED_PASSWORD = "$2a$10$AIUufK8g6EFhBcumRRV2L.AQNz3Bjp7oDQVFiO5JJMBFZQ6x2/R/2";
+
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+    @Autowired
+    private JWTRequestFilter jwtRequestFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/story/{storyId}","/story", "/building", "/area", "/company", "/updatestory/{storyId}").permitAll()
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers(HttpMethod.GET, "/building").permitAll()
+                .antMatchers(HttpMethod.GET, "/story").permitAll()
+                .antMatchers(HttpMethod.GET, "/area").permitAll()
+                .antMatchers(HttpMethod.GET, "/company").permitAll()
                 .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/homepage", true)
-                .failureUrl("/login?error=true")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
-        http.csrf().disable();
+                .and().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder())
-                .withUser("user@usertje.nl").password(ENCODED_PASSWORD).roles("USER");
+        auth.userDetailsService(myUserDetailsService);
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
 

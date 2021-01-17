@@ -22,7 +22,7 @@ public class StoryServices {
     private StoryRepository storyRepository;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserService userService;
 
     @Autowired
     private BuildingServices buildingServices;
@@ -41,7 +41,7 @@ public class StoryServices {
     }
 
     public StoryResponseBody setStory(StoryRequestBody storyRequestBody) {
-        User user = userDetailsService.getUserById(storyRequestBody.getId());
+        User user = userService.getUserById(storyRequestBody.getId());
         Building building = buildingServices.getBuildingById(storyRequestBody.getBuildingId());
         Story story = new Story();
         story.setBuilding(building);
@@ -62,7 +62,7 @@ public class StoryServices {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
 
-        User user = userDetailsService.getUserByEmail(currentPrincipalName);
+        User user = userService.getUserByEmail(currentPrincipalName);
         story.setUser(user);
         storyRepository.save(story);
     }

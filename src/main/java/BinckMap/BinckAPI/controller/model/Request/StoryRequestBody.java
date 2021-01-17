@@ -22,8 +22,6 @@ public class StoryRequestBody implements IStoryRequestBody {
                             @JsonProperty("buildingId") long buildingId,
                             @JsonProperty("subject") String subject,
                             @JsonProperty("verhaal") String verhaal)
-//                            @JsonProperty("publicationDate") Date publicationDate,
-//                            @JsonProperty("creationDate") Date creationDate)
     {
         this.userId = userid;
         this.buildingId = buildingId;
