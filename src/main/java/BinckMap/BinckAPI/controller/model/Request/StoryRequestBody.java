@@ -13,6 +13,8 @@ public class StoryRequestBody implements IStoryRequestBody {
 
     private UUID userId;
     private long buildingId;
+    private long areadId;
+    private long companyId;
     private String subject;
     private String verhaal;
     private Date publicationDate;

@@ -37,6 +37,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/story").permitAll()
                 .antMatchers(HttpMethod.GET, "/area").permitAll()
                 .antMatchers(HttpMethod.GET, "/company").permitAll()
+                .antMatchers(HttpMethod.GET, "/user").hasRole("admin")
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

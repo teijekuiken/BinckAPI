@@ -6,6 +6,7 @@ import BinckMap.BinckAPI.services.UserService;
 import BinckMap.BinckAPI.services.model.UserResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("/user")
     public ResponseEntity<UserResponseBody> addUser(@RequestBody UserRequestBody userRequestBody){
         UserResponseBody userResponseBody = userService.addUser(userRequestBody);
