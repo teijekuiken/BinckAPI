@@ -36,7 +36,7 @@ public class StoryController {
 
         return ResponseEntity.ok(stories);
     }
-
+    @CrossOrigin
     @PostMapping("/story")
     public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody) {
         return storyServices.setStory(storyRequestBody);

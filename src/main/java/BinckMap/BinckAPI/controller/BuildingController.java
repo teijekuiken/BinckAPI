@@ -3,13 +3,11 @@ package BinckMap.BinckAPI.controller;
 import BinckMap.BinckAPI.controller.model.Request.BuildingRequestBody;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.BuildingServices;
-import BinckMap.BinckAPI.services.model.BuildingResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class BuildingController {
