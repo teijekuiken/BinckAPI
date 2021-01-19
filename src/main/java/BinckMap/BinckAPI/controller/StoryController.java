@@ -21,6 +21,7 @@ public class StoryController {
     @Autowired
     private StoryRepository storyRepository;
 
+    @CrossOrigin
     @GetMapping("/story/{storyId}")
     public ResponseEntity<Story> getStory(@PathVariable UUID storyId) {
 
@@ -36,12 +37,12 @@ public class StoryController {
 
         return ResponseEntity.ok(stories);
     }
-
+    @CrossOrigin
     @PostMapping("/story")
     public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody) {
         return storyServices.setStory(storyRequestBody);
     }
-
+    @CrossOrigin
     @PutMapping("/updatestory/{storyId}")
     public StoryResponseBody updateStory(@RequestBody StoryRequestBody newStory, @PathVariable UUID storyId) {
 
