@@ -2,20 +2,24 @@ package BinckMap.BinckAPI.services.model;
 
 import BinckMap.BinckAPI.Interfaces.IUserResponseBody;
 
+import java.util.UUID;
+
 public class UserResponseBody implements IUserResponseBody {
 
     private String firstName;
     private String lastName;
     private String email;
+    private UUID id;
 
     public UserResponseBody(){
 
     }
 
-    public UserResponseBody(String firstName, String lastName, String email){
+    public UserResponseBody(String firstName, String lastName, String email, UUID id){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.id = id;
     }
 
     @Override
@@ -46,5 +50,13 @@ public class UserResponseBody implements IUserResponseBody {
     @Override
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

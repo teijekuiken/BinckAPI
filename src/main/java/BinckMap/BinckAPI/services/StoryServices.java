@@ -5,8 +5,6 @@ import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
 import BinckMap.BinckAPI.entity.*;
 import BinckMap.BinckAPI.services.model.StoryResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,17 +66,6 @@ public class StoryServices {
         StoryResponseBody storyResponseBody = new StoryResponseBody(user.getFirstName(), story.getSubject(), story.getStory());
 
         return storyResponseBody;
-    }
-
-    public void addStory(Story story) {
-        Area area = new Area();
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-
-        User user = userService.getUserByEmail(currentPrincipalName);
-        story.setUser(user);
-        storyRepository.save(story);
     }
 
 }

@@ -29,12 +29,16 @@ public class UserService {
         return user.get();
     }
 
-    public User getUserByEmail(String email){
+    public UserResponseBody getUserByEmail(String email){
         Optional<User> user = userRepository.findByEmail(email);
         if (user.isEmpty()) {
             return null;
         }
-        return user.get();
+
+        UserResponseBody userResponseBody = new UserResponseBody(user.get().getFirstName(), user.get().getLastName(), user.get().getEmail(), user.get().getId());
+
+        return userResponseBody;
+
     }
 
     public List<User> getAllUsers() {
@@ -55,7 +59,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        UserResponseBody userResponseBody = new UserResponseBody(user.getFirstName(), user.getLastName(), user.getEmail());
+        UserResponseBody userResponseBody = new UserResponseBody(user.getFirstName(), user.getLastName(), user.getEmail(), user.getId());
 
         return userResponseBody;
     }
