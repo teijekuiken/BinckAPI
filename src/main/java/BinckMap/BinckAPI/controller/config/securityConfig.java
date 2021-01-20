@@ -32,9 +32,9 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/story").permitAll()
+                .antMatchers("/authenticate").permitAll()
                 .antMatchers(HttpMethod.GET, "/building").permitAll()
-                .antMatchers(HttpMethod.GET, "/story").permitAll()
+                .antMatchers(HttpMethod.GET, "/story", "/story/{storyId}").permitAll()
                 .antMatchers(HttpMethod.GET, "/area").permitAll()
                 .antMatchers(HttpMethod.GET, "/company").permitAll()
                 .antMatchers(HttpMethod.GET, "/user").hasRole("admin")

@@ -42,6 +42,7 @@ public class StoryController {
     public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody) {
         return storyServices.setStory(storyRequestBody);
     }
+
     @CrossOrigin
     @PutMapping("/updatestory/{storyId}")
     public StoryResponseBody updateStory(@RequestBody StoryRequestBody newStory, @PathVariable UUID storyId) {
