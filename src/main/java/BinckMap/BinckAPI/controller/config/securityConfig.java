@@ -15,7 +15,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 
 @Configuration
@@ -33,12 +32,13 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate").permitAll()
-                .antMatchers(HttpMethod.GET, "/building").permitAll()
-                .antMatchers(HttpMethod.GET, "/story", "/story/{storyId}").permitAll()
-                .antMatchers(HttpMethod.GET, "/area").permitAll()
-                .antMatchers(HttpMethod.GET, "/company").permitAll()
-                .antMatchers(HttpMethod.GET, "/user").hasRole("admin")
+                .antMatchers("/v1/authenticate").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/building").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/story", "/v1/story/{storyId}").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/area").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/company").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/user").hasRole("admin")
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
