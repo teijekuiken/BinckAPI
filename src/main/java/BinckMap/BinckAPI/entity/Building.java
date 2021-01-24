@@ -16,8 +16,20 @@ public class Building {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 50000)
     private String description;
+
+    @Column(length = 50000)
+    private String Status;
+
+    @Column(length = 50000)
+    private String Ontwikkelaar;
+
+    @Column(length = 50000)
+    private String programma;
+
+    @Column
+    private String labelType;
 
     @OneToMany
     @JoinColumn(name="building_id")
@@ -109,5 +121,37 @@ public class Building {
 
     public void setLong2(double long2) {
         this.long2 = long2;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public String getOntwikkelaar() {
+        return Ontwikkelaar;
+    }
+
+    public void setOntwikkelaar(String ontwikkelaar) {
+        this.Ontwikkelaar = ontwikkelaar;
+    }
+
+    public String getProgramma() {
+        return programma;
+    }
+
+    public void setProgramma(String programma) {
+        this.programma = programma;
+    }
+
+    public String getLabelType() {
+        return labelType;
+    }
+
+    public void setLabelType(String labelType) {
+        this.labelType = labelType;
     }
 }

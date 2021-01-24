@@ -25,7 +25,14 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column
     private String password;
+
+    @Column
+    private String roles;
+
+    @Column
+    private boolean isActive;
 
     @OneToMany(mappedBy = "user")
     private List<Story> stories;
@@ -87,5 +94,21 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

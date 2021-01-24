@@ -3,15 +3,14 @@ package BinckMap.BinckAPI.controller;
 import BinckMap.BinckAPI.controller.model.Request.BuildingRequestBody;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.BuildingServices;
-import BinckMap.BinckAPI.services.model.BuildingResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
+@RequestMapping("/v1")
 public class BuildingController {
 
     @Autowired
@@ -34,8 +33,8 @@ public class BuildingController {
     }
 
     @PostMapping("/building")
-    public BuildingResponseBody addBuilding(@RequestBody BuildingRequestBody buildingRequestBody) {
-        return buildingServices.setBuilding(buildingRequestBody);
+    public List<Building> addBuildings(@RequestBody List<BuildingRequestBody> buildingRequestBody) {
+        return buildingServices.setBuildings(buildingRequestBody);
     }
     
 }

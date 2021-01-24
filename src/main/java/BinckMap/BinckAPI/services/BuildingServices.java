@@ -2,12 +2,15 @@ package BinckMap.BinckAPI.services;
 
 import BinckMap.BinckAPI.DAO.BuildingRepository;
 import BinckMap.BinckAPI.DAO.StoryRepository;
+import BinckMap.BinckAPI.controller.model.Request.AreaRequestBody;
 import BinckMap.BinckAPI.controller.model.Request.BuildingRequestBody;
+import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.entity.Building;
 import BinckMap.BinckAPI.services.model.BuildingResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -42,13 +45,29 @@ public class BuildingServices {
         return buildings;
     }
 
-    public BuildingResponseBody setBuilding(BuildingRequestBody buildingRequestBody) {
-        Building building = new Building(buildingRequestBody.getName(), buildingRequestBody.getDescription(), buildingRequestBody.getLat1(), buildingRequestBody.getLong1(), buildingRequestBody.getLat2(), buildingRequestBody.getLong2());
+    public List<Building> setBuildings(List<BuildingRequestBody> buildingRequestBodies) {
 
-        buildingRepository.save(building);
+        List<Building> buildings = new ArrayList();
 
-        BuildingResponseBody buildingResponseBody = new BuildingResponseBody(building.getName(), building.getDescription(), building.getLat1(), building.getLong1(), building.getLat2(), building.getLong2());
-        return buildingResponseBody;
+        for(BuildingRequestBody buildingRequestBody : buildingRequestBodies){
+            Building building = new Building();
+            building.setName(buildingRequestBody.getName());
+            building.setLabelType(buildingRequestBody.getLabelType());
+            building.setOntwikkelaar(buildingRequestBody.getOntwikkelaar());
+            building.setStatus(buildingRequestBody.getStatus());
+            building.setProgramma(buildingRequestBody.getProgramma());
+            building.setStatus(buildingRequestBody.getStatus());
+            building.setDescription(buildingRequestBody.getDescription());
+            building.setLat1(buildingRequestBody.getLat1());
+            building.setLong1(buildingRequestBody.getLong1());
+            building.setLat2(buildingRequestBody.getLat2());
+            building.setLong2(buildingRequestBody.getLong2());
+
+            buildings.add(building);
+            buildingRepository.save(building);
+        }
+
+       return buildings;
     }
     
 }

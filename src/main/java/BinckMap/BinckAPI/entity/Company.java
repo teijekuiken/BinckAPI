@@ -14,11 +14,23 @@ public class Company {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 50000)
     private String description;
 
     @OneToMany(mappedBy = "company")
     private List<Story> stories;
+
+    @Column(length = 50000)
+    private String status;
+
+    @Column(length = 50000)
+    private String Ontwikkelaar;
+
+    @Column(length = 50000)
+    private String programma;
+
+    @Column
+    private String labelType;
 
     @Column
     private double lat1;
@@ -106,5 +118,37 @@ public class Company {
 
     public void setLong2(double long2) {
         this.long2 = long2;
+    }
+
+    public String getProgramma() {
+        return programma;
+    }
+
+    public void setProgramma(String programma) {
+        this.programma = programma;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getOntwikkelaar() {
+        return Ontwikkelaar;
+    }
+
+    public void setOntwikkelaar(String ontwikkelaar) {
+        Ontwikkelaar = ontwikkelaar;
+    }
+
+    public String getLabelType() {
+        return labelType;
+    }
+
+    public void setLabelType(String labelType) {
+        this.labelType = labelType;
     }
 }

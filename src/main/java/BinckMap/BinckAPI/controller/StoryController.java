@@ -1,5 +1,6 @@
 package BinckMap.BinckAPI.controller;
 
+import BinckMap.BinckAPI.DAO.StoryRepository;
 import BinckMap.BinckAPI.controller.model.Request.StoryRequestBody;
 import BinckMap.BinckAPI.entity.Story;
 import BinckMap.BinckAPI.services.StoryServices;
@@ -12,11 +13,16 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/v1")
 public class StoryController {
 
     @Autowired
     private StoryServices storyServices;
 
+    @Autowired
+    private StoryRepository storyRepository;
+
+    @CrossOrigin
     @GetMapping("/story/{storyId}")
     public ResponseEntity<Story> getStory(@PathVariable UUID storyId) {
 
@@ -32,10 +38,24 @@ public class StoryController {
 
         return ResponseEntity.ok(stories);
     }
-
+    @CrossOrigin
     @PostMapping("/story")
     public StoryResponseBody addStory(@RequestBody StoryRequestBody storyRequestBody) {
         return storyServices.setStory(storyRequestBody);
+    }
+
+    @CrossOrigin
+    @PutMapping("/updatestory/{storyId}")
+    public StoryResponseBody updateStory(@RequestBody StoryRequestBody newStory, @PathVariable UUID storyId) {
+
+        Story storyToUpdate = storyServices.getStoryById(storyId);
+        storyToUpdate.setStory(newStory.getVerhaal());
+        storyToUpdate.setSubject(newStory.getSubject());
+        storyRepository.save(storyToUpdate);
+
+        StoryResponseBody storyResponseBody = new StoryResponseBody(storyToUpdate.getUser().getFirstName(), storyToUpdate.getSubject(), storyToUpdate.getStory());
+
+        return storyResponseBody;
     }
 
 }

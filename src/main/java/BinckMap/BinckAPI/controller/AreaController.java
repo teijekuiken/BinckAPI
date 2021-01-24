@@ -3,15 +3,14 @@ package BinckMap.BinckAPI.controller;
 import BinckMap.BinckAPI.controller.model.Request.AreaRequestBody;
 import BinckMap.BinckAPI.entity.Area;
 import BinckMap.BinckAPI.services.AreaServices;
-import BinckMap.BinckAPI.services.model.AreaResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
+@RequestMapping("/v1")
 public class AreaController {
 
     @Autowired
@@ -34,7 +33,7 @@ public class AreaController {
     }
 
     @PostMapping("/area")
-    public AreaResponseBody addArea(@RequestBody AreaRequestBody areaRequestBody) {
-        return areaServices.setArea(areaRequestBody);
+    public List<Area> addAreas(@RequestBody List<AreaRequestBody> areas) {
+        return areaServices.setAreas(areas);
     }
 }

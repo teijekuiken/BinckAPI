@@ -8,29 +8,35 @@ import java.util.Date;
 import java.util.UUID;
 
 
-
 public class StoryRequestBody implements IStoryRequestBody {
 
     private UUID userId;
+    private long areaId;
     private long buildingId;
+    private long companyId;
     private String subject;
     private String verhaal;
     private Date publicationDate;
     private Date creationDate;
 
-    public StoryRequestBody(@JsonProperty("userId")UUID userid,
+    public StoryRequestBody(@JsonProperty("userId") UUID userid,
+                            @JsonProperty("areaId") long areaId,
                             @JsonProperty("buildingId") long buildingId,
+                            @JsonProperty("companyId") long companyId,
                             @JsonProperty("subject") String subject,
-                            @JsonProperty("verhaal") String verhaal)
-//                            @JsonProperty("publicationDate") Date publicationDate,
-//                            @JsonProperty("creationDate") Date creationDate)
-    {
+                            @JsonProperty("verhaal") String verhaal) {
         this.userId = userid;
+        this.areaId = areaId;
         this.buildingId = buildingId;
+        this.companyId = companyId;
         this.subject = subject;
         this.verhaal = verhaal;
 //        this.publicationDate = publicationDate;
 //        this.creationDate = creationDate;
+    }
+
+
+    public StoryRequestBody() {
     }
 
     public UUID getId() {
@@ -81,11 +87,27 @@ public class StoryRequestBody implements IStoryRequestBody {
         this.userId = userId;
     }
 
+    public long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(long areaId) {
+        this.areaId = areaId;
+    }
+
     public long getBuildingId() {
         return buildingId;
     }
 
     public void setBuildingId(long buildingId) {
         this.buildingId = buildingId;
+    }
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
     }
 }

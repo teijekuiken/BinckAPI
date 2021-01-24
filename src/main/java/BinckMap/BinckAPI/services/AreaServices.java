@@ -8,6 +8,7 @@ import BinckMap.BinckAPI.services.model.AreaResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -42,13 +43,28 @@ public class AreaServices {
         return areas;
     }
 
-    public AreaResponseBody setArea(AreaRequestBody areaRequestBody) {
-        Area area = new Area(areaRequestBody.getName(), areaRequestBody.getDescription(), areaRequestBody.getLat1(), areaRequestBody.getLong1(), areaRequestBody.getLat2(), areaRequestBody.getLong2());
+    public List<Area> setAreas(List<AreaRequestBody> areaRequestBodies) {
+        List<Area> areas = new ArrayList();
 
-        areaRepository.save(area);
+        for(AreaRequestBody areaRequestBody : areaRequestBodies){
+            Area area = new Area();
+            area.setName(areaRequestBody.getName());
+            area.setLabelType(areaRequestBody.getLabelType());
+            area.setOntwikkelaar(areaRequestBody.getOntwikkelaar());
+            area.setStatus(areaRequestBody.getStatus());
+            area.setProgramma(areaRequestBody.getProgramma());
+            area.setStatus(areaRequestBody.getStatus());
+            area.setDescription(areaRequestBody.getDescription());
+            area.setLat1(areaRequestBody.getLat1());
+            area.setLong1(areaRequestBody.getLong1());
+            area.setLat2(areaRequestBody.getLat2());
+            area.setLong2(areaRequestBody.getLong2());
 
-        AreaResponseBody areaResponseBody = new AreaResponseBody(area.getName(), area.getDescription(), area.getLat1(), area.getLong1(), area.getLat2(), area.getLong2());
-        return areaResponseBody;
+            areas.add(area);
+            areaRepository.save(area);
+        }
+
+        return areas;
     }
 
 }

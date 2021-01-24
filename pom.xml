@@ -80,6 +80,31 @@
 			<artifactId>io.earcam.maven.plugin.netlify</artifactId>
 			<version>0.0.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -87,32 +112,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>io.github.javaeden.orchid</groupId>
-				<artifactId>orchid-maven-plugin</artifactId>
-				<version>${orchid.version}</version>
-
-				<!-- Add an Orchid Bundle. OrchidAll comes with all official themes included.
-                     You must include a theme separately when using the OrchidBlog bundle.
-                     Any additional plugins may be added as dependencies here as well. -->
-				<dependencies>
-					<dependency>
-						<groupId>io.github.javaeden.orchid</groupId>
-						<artifactId>OrchidAll</artifactId>
-						<version>${orchid.version}</version>
-					</dependency>
-				</dependencies>
-
-				<configuration>
-					<!-- All properties are optional -->
-					<theme>${theme}</theme>                              <!-- can also be set as `site.theme` in `config.yml` -->
-					<version>${project.version}</version>                <!-- defaults to project version -->
-					<baseUrl>${baseUrl}</baseUrl>                        <!-- a baseUrl prepended to all generated links. Can also be set as `site.baseUrl` in `config.yml` Defaults to '/' -->
-					<srcDir>path/to/new/source/directory</srcDir>        <!-- defaults to 'src/orchid/resources' -->
-					<destDir>path/to/new/destination/directory</destDir> <!-- defaults to 'target/docs/orchid' -->
-					<runTask>build</runTask>                             <!-- specify a task to run with 'mvn orchid:run' -->
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
